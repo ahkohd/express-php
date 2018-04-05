@@ -5,7 +5,7 @@
 		/**
 		 * Set Express router's base path
 		 */
-		 $app->set('basePath', '/express-dev');
+		 $app->set('basePath', '/express-php-master');
 		 
 		 /**
 		  * Set Express view engine
