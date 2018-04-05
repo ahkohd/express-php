@@ -1,0 +1,1 @@
+Static web assets are stored here.
