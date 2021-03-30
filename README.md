@@ -563,7 +563,7 @@ $app->get('/', function($req, $res){
 To experiment with the `$request->params` array, we can add a new route to our application.
 This route will define URL parameters and print them in the console.
 ```php
-$app->get('/params/:role/:name/:status', function($req, $res) {
+$app->get('/params/[:role]/[:name]/[:status]', function($req, $res) {
 	echo 'ROLE: '.$req->params['role'];
 	echo 'NAME: '.$req->params['name'];
 	echo 'STATUS: '.$req->params['status'];
