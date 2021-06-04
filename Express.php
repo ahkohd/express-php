@@ -31,7 +31,7 @@ class Router {
 	/**
 	 * @var string Can be used to ignore leading part of the Request URL (if main file lives in subdirectory of host)
 	 */
-	protected $basePath = '';
+	public $basePath = '';
 
 	/**
 	 * @var array Array of default match types (regex helpers)
@@ -923,7 +923,10 @@ class Express {
 
                         # loop through the @var $route_middlewares...
                         foreach ($this->route_middlewares as $key => $value) {
-                            if($key==$get_route) {
+                            // flag here
+                            // if($key==$get_route) {
+
+                            if(strpos($get_route, $key) !== false) {
 
                                 # The middle ware's name match this route, execute the middle ware callback...
                                 $count_call = count($value);
@@ -954,6 +957,9 @@ class Express {
                 Express::$sharedData[$parameter[0]] = $parameter[1];
             }
 
+        } else if($method_name=="getGlobal") {
+
+                return Express::$sharedData[$parameter[0]];
         }else {
     		throw new Exception('Function '.$method_name.' does not exists.');
     	}
